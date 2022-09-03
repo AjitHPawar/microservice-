@@ -1,0 +1,9 @@
+eureka:
+  client:
+    eureka-server-port: 8001
+    fetch-registry: true
+    eureka-server-connect-timeout-seconds: 0
+       
+   
+  instance:
+    appname: Department  

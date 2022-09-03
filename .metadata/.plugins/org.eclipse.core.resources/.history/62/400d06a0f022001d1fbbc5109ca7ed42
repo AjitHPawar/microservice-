@@ -1,0 +1,7 @@
+eureka:
+  client:
+    eureka-server-port: 8001
+   
+   
+   
+application

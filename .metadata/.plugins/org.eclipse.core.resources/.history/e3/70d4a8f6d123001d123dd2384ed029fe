@@ -1,0 +1,24 @@
+package com.utility.comtroller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+@RestController
+@RequestMapping("/util")
+public class UtilController {
+
+	@Autowired
+	private RestTemplate template;
+
+	@GetMapping("/getFullName")
+	public String getFullName() {
+		String firstname = template.getForObject("http://localhost:8002/department/getFirstname", String.class);
+		String lastname = template.getForObject("http://localhost:8001/user/getLastName", String.class);
+		String util = template.getForObject("http://localhost:8003/util/getUtility", String.class);
+		
+		return firstname+" "+lastname+" "+util;
+	}
+}

@@ -1,0 +1,5 @@
+package com.gate.controller;
+
+public class FallbackController {
+
+}

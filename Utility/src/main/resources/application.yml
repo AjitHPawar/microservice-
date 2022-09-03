@@ -1,0 +1,17 @@
+server:
+  port: 8003
+  
+spring:
+  application:
+    name: Util-Service
+    
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+     
+     
+  instance:
+    hostname: localhost

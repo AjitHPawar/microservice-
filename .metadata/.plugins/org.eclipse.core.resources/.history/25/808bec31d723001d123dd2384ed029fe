@@ -1,0 +1,35 @@
+server:
+  port: 8004
+  
+spring:
+  application:
+    name: API-GATEWAY
+  
+  cloud:
+    gateway:
+      routes:
+      - id : User-Service
+        uri : lb://User-Service
+        predicates:
+          - Path=/user/**
+      - id: Department-Service
+        uri: lb://Department-Service
+        predicates:
+        - Path=/department/**
+    
+  main:
+    web-application-type: reactive
+    
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: false
+    registry-fetch-interval-seconds: 0
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+      
+  instance:
+    hostname: localhost
+    
+  
